@@ -5,40 +5,61 @@
     define that for each height we have certain biome or color
 */
 
-// set the number of columns and rows - 2d grid
+import p5 from "p5";
+
+// --------------------------------------
+//              GENERATE
+//              TERRAIN
+// --------------------------------------
+
+// set the number of columns and rows
 const columns = 100;
 const rows = 100;
 
-// create an array to store the heights
-let heights = [];
+// create the heights array
+let heights;
 
-// Initialize the array with 0s
-for (let x = 0; x < columns; x++) {
-  heights[x] = [];
-  for (let y = 0; y < rows; y++) {
-    heights[x][y] = 0;
-  }
-}
+// generate the heights for each cell
+const generateHeights = () => {
+    heights = [];
 
-// generate the heights using perlin
-let noiseMax = 0;
-let noiseMin = 0;
+    for (let x = 0; x < columns; x++) {
+        heights[x] = [];
 
-for (let x = 0; x < columns; x++) {
-  for (let y = 0; y < rows; y++) {
-    
-    let noise = noise(x / 10, y / 10);
+        for (let y = 0; y < rows; y++) {
+            heights[x][y] = p5.noise(x * 0.1, y * 0.1);
+        }
+    }
+};
 
-    heights[x][y] = noise;
+// --------------------------------------
+//              DISPLAY
+//              TERRAIN
+// --------------------------------------
 
-    noiseMax = Math.max(noiseMax, noise);
-    noiseMin = Math.min(noiseMin, noise);
-  }
-}
+// set the size of each cell
+const cellSize = 10;
 
-// normalize the heights so they are between 0 and 1
-for (let x = 0; x < columns; x++) {
-  for (let y = 0; y < rows; y++) {
-    heights[x][y] = (heights[x][y] - noiseMin) / (noiseMax - noiseMin);
-  }
-}
+// create a new p5.js sketch
+const sketch = (p) => {
+
+  // initialize the sketch
+  p.setup = () => {
+    p.createCanvas(columns * cellSize, rows * cellSize);
+    generateHeights();
+  };
+
+  // draw the terrain
+  p.draw = () => {
+    for (let x = 0; x < columns; x++) {
+        for (let y = 0; y < rows; y++) {
+            let h = heights[x][y];
+            p.fill(h * 255);
+            p.rect(x * cellSize, y * cellSize, cellSize, cellSize);
+        }
+    }
+  };
+};
+
+// create a new p5.js instance
+new p5(sketch);
