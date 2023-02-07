@@ -5,11 +5,11 @@
     define that for each height we have certain biome or color
 */
 
-// Set the number of columns and rows - 2d grid
+// set the number of columns and rows - 2d grid
 const columns = 100;
 const rows = 100;
 
-// Create an array to store the heights
+// create an array to store the heights
 let heights = [];
 
 // Initialize the array with 0s
@@ -20,7 +20,7 @@ for (let x = 0; x < columns; x++) {
   }
 }
 
-// Generate the heights using Perlin noise
+// generate the heights using perlin
 let noiseMax = 0;
 let noiseMin = 0;
 
@@ -36,7 +36,7 @@ for (let x = 0; x < columns; x++) {
   }
 }
 
-// Normalize the heights so they are between 0 and 1
+// normalize the heights so they are between 0 and 1
 for (let x = 0; x < columns; x++) {
   for (let y = 0; y < rows; y++) {
     heights[x][y] = (heights[x][y] - noiseMin) / (noiseMax - noiseMin);
