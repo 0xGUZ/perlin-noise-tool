@@ -1,0 +1,28 @@
+body {
+    height: 70rem;
+
+}
+
+#header {
+    height: 5rem;
+    background-color: black;
+    width: 100%;
+    text-align: center;
+    line-height: 3.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+ 
+#gameCanvas {
+    width: 80%;
+    height: 100%;
+}
+
+#right-panel {
+    background-color: darkgray;
+    height: 100%;
+    width: 20%;
+    float: right;
+}
