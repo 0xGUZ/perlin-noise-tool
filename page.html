@@ -16,16 +16,54 @@
 
     <div id="header"> 
         
-        <h1> gustavo-villar </h1>
+        <h1> @gustavo-villar-dev/perlin-noise-tool </h1>
     </div>
 
     <canvas id="gameCanvas"></canvas> 
 
-    <div id="right-panel"></div>
+    <div id="right-panel">
+
+        <div>
+            <label for="totalNoiseSlider"> Total Noise: <span id="totalNoiseValue"></span></label>
+            <input class="slider" type="range" min="0" max="100" id="totalNoiseSlider">
+        </div>
+        
+        <div>
+            <label for="persistenceSlider"> Persistence: <span id="persistenceValue"></span> </label>
+            <input class="slider" type="range" min="0" max="100" id="persistenceSlider">
+        </div>
+
+        <div>
+            <label for="octaveCountSlider"> Octave Count: <span id="octaveCountValue"></span> </label>
+            <input class="slider" type="range" min="0" max="100" id="octaveCountSlider">
+        </div>
+
+        <div>
+            <label for="hashxSlider"> X Hash: <span id="hashxValue"></span> </label>
+            <input class="slider" type="range" min="0" max="100" id="hashxSlider">
+        </div>
+
+        <div>
+            <label for="hashySlider"> Y Hash: <span id="hashyValue"></span> </label>
+            <input class="slider" type="range" min="0" max="100" id="hashySlider">
+        </div>
+
+        <div>
+            <label for="hashzSlider"> Z Hash: <span id="hashzValue"></span> </label>
+            <input class="slider" type="range" min="0" max="100" id="hashzSlider">
+        </div>
+
+        <div>
+            <button id="button" onclick="generateNewMap()">Generate Map</button>
+        </div>
+
+            
+    </div>
 
     
 
     <script src="mapGeneration.js"></script>
+    <script src="updateUI.js"></script>
 
 </body>
 

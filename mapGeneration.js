@@ -3,10 +3,27 @@
 //              TERRAIN
 // --------------------------------------
 
+//slider values
+totalNoiseValue = document.getElementById("totalNoiseSlider");
+persistenceValue = document.getElementById("persistenceSlider");
+octaveCountValue = document.getElementById("octaveCountSlider");
+hashxValue = document.getElementById("hashxSlider");
+hashyValue = document.getElementById("hashySlider");
+hashzValue = document.getElementById("hashzSlider");
+
+totalNoise = totalNoiseValue.value / 100;
+persistence = persistenceValue.value / 100;
+octaveCount = octaveCountValue.value;
+hashx = hashxValue.value;
+hashy = hashyValue.value;
+hashz = hashzValue.value;
+
+
+
 function generateNoise(xCoord, yCoord) {
-  let totalNoise = 0.2;
-  let persistence = 0.6;
-  let octaveCount = 10;
+  /*let totalNoise = totalNoiseValue / 100; //starting area ocuppied by noise or land
+  let persistence = persistenceValue / 100; //definition
+  let octaveCount = octaveCountValue; //level of detail*/
   for (let currentOctave = 0; currentOctave < octaveCount; currentOctave++) {
     let frequency = 2**currentOctave;
     let amplitude = persistence**currentOctave;
@@ -42,9 +59,9 @@ function fade(interpAmount) {
   return interpAmount * interpAmount * interpAmount * (interpAmount * (interpAmount * 6 - 15) + 10);
 }
 
-let hashX = 12.9898;
-let hashY = 78.233;
-let hashZ = 43758.5453;
+/*let hashX = hashxValue;
+let hashY = hashyValue;
+let hashZ = hashzValue;*/
 
 // Hash function to determine gradient
 function hashCoordinates(xIntCoord, yIntCoord) {
@@ -84,11 +101,12 @@ function gradient(hash, xFracCoord, yFracCoord) {
 
 
 // Set the dimensions of the map
-const mapWidth = 1080;
-const mapHeight = 1080;
+const mapWidth = 512;
+const mapHeight = 512;
 
 function generateNewMap(){
 
+    alert(totalNoiseValue);
   // Create a 2D array to store the noise values
   let noiseValues = [];
   for (let x = 0; x < mapWidth; x++) {

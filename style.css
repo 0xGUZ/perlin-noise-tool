@@ -1,6 +1,15 @@
 body {
-    height: 70rem;
+    height: 1200px;
+    margin: auto;
+}
 
+h1 {
+    color: antiquewhite;
+}
+
+#button {
+    width: 100%;
+    height: 80px;
 }
 
 #header {
@@ -18,11 +27,21 @@ body {
 #gameCanvas {
     width: 80%;
     height: 100%;
+    margin-top: 5rem;
 }
 
 #right-panel {
     background-color: darkgray;
     height: 100%;
+    margin-top: 5rem;
+    display: grid;
+    justify-content: center;
     width: 20%;
     float: right;
+    align-items: center;
+}
+
+.slider {
+    height: 30px;
+    width: 100%;
 }
