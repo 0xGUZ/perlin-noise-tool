@@ -12,7 +12,7 @@
 
 </head>
 
-<body>
+<body onload="generateNewMap();">
 
     <div id="header"> 
         
@@ -25,32 +25,32 @@
 
         <div>
             <label for="totalNoiseSlider"> Total Noise: <span id="totalNoiseValue"></span></label>
-            <input class="slider" type="range" min="0" max="100" id="totalNoiseSlider">
+            <input class="slider" type="range" min="0" max="60" value="30" id="totalNoiseSlider">
         </div>
         
         <div>
             <label for="persistenceSlider"> Persistence: <span id="persistenceValue"></span> </label>
-            <input class="slider" type="range" min="0" max="100" id="persistenceSlider">
+            <input class="slider" type="range" min="30" max="100" value="65" id="persistenceSlider">
         </div>
 
         <div>
             <label for="octaveCountSlider"> Octave Count: <span id="octaveCountValue"></span> </label>
-            <input class="slider" type="range" min="0" max="100" id="octaveCountSlider">
+            <input class="slider" type="range" min="1" max="20" value="10" id="octaveCountSlider">
         </div>
 
         <div>
             <label for="hashxSlider"> X Hash: <span id="hashxValue"></span> </label>
-            <input class="slider" type="range" min="0" max="100" id="hashxSlider">
+            <input class="slider" type="range" min="1" max="35" value="17" id="hashxSlider">
         </div>
 
         <div>
             <label for="hashySlider"> Y Hash: <span id="hashyValue"></span> </label>
-            <input class="slider" type="range" min="0" max="100" id="hashySlider">
+            <input class="slider" type="range" min="36" max="70" value="53" id="hashySlider">
         </div>
 
         <div>
             <label for="hashzSlider"> Z Hash: <span id="hashzValue"></span> </label>
-            <input class="slider" type="range" min="0" max="100" id="hashzSlider">
+            <input class="slider" type="range" min="0" max="100" value="50" id="hashzSlider">
         </div>
 
         <div>

@@ -1,34 +1,23 @@
+
+
 // --------------------------------------
 //              GENERATE
 //              TERRAIN
 // --------------------------------------
 
-//slider values
-totalNoiseValue = document.getElementById("totalNoiseSlider");
-persistenceValue = document.getElementById("persistenceSlider");
-octaveCountValue = document.getElementById("octaveCountSlider");
-hashxValue = document.getElementById("hashxSlider");
-hashyValue = document.getElementById("hashySlider");
-hashzValue = document.getElementById("hashzSlider");
-
-totalNoise = totalNoiseValue.value / 100;
-persistence = persistenceValue.value / 100;
-octaveCount = octaveCountValue.value;
-hashx = hashxValue.value;
-hashy = hashyValue.value;
-hashz = hashzValue.value;
-
-
-
 function generateNoise(xCoord, yCoord) {
-  /*let totalNoise = totalNoiseValue / 100; //starting area ocuppied by noise or land
-  let persistence = persistenceValue / 100; //definition
-  let octaveCount = octaveCountValue; //level of detail*/
+
+  //slider values
+  let totalNoise = document.getElementById("totalNoiseSlider").value / 100;
+  let persistence = document.getElementById("persistenceSlider").value / 100;
+  let octaveCount = document.getElementById("octaveCountSlider").value;
+
   for (let currentOctave = 0; currentOctave < octaveCount; currentOctave++) {
     let frequency = 2**currentOctave;
     let amplitude = persistence**currentOctave;
     totalNoise += generatePerlinNoise(xCoord * frequency, yCoord * frequency) * amplitude;
   }
+  
   return totalNoise;
 }
 
@@ -59,12 +48,14 @@ function fade(interpAmount) {
   return interpAmount * interpAmount * interpAmount * (interpAmount * (interpAmount * 6 - 15) + 10);
 }
 
-/*let hashX = hashxValue;
-let hashY = hashyValue;
-let hashZ = hashzValue;*/
-
 // Hash function to determine gradient
 function hashCoordinates(xIntCoord, yIntCoord) {
+
+  //slider values
+  let hashX = document.getElementById("hashxSlider").value;
+  let hashY = document.getElementById("hashySlider").value;
+  let hashZ = document.getElementById("hashzSlider").value;
+
   let hash = Math.sin(xIntCoord * hashX + yIntCoord * hashY) * hashZ;
   return hash - Math.floor(hash);
 }
@@ -106,7 +97,6 @@ const mapHeight = 512;
 
 function generateNewMap(){
 
-    alert(totalNoiseValue);
   // Create a 2D array to store the noise values
   let noiseValues = [];
   for (let x = 0; x < mapWidth; x++) {
@@ -133,4 +123,3 @@ function generateNewMap(){
   }
 }
 
-generateNewMap();
