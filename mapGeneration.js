@@ -50,13 +50,11 @@ function fade(interpAmount) {
 
 // Hash function to determine gradient
 function hashCoordinates(xIntCoord, yIntCoord) {
-
-  //slider values
-  let hashX = document.getElementById("hashxSlider").value;
-  let hashY = document.getElementById("hashySlider").value;
-  let hashZ = document.getElementById("hashzSlider").value;
-
-  let hash = Math.sin(xIntCoord * hashX + yIntCoord * hashY) * hashZ;
+  
+  //slider var
+  let seed = document.getElementById("seedSlider").value;
+  
+  let hash = Math.sin(xIntCoord * 12.9898 + yIntCoord * 78.233 + seed) * 43758.5453;
   return hash - Math.floor(hash);
 }
 

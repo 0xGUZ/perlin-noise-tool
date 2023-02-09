@@ -19,23 +19,11 @@ octaveCountSlider.oninput = function() {
   octaveCountValue.innerHTML = this.value;
 }
 
-const hashxSlider = document.getElementById("hashxSlider");
-const hashxValue = document.getElementById("hashxValue");
-hashxValue.innerHTML = hashxSlider.value;
-hashxSlider.oninput = function() {
-  hashxValue.innerHTML = this.value;
+const seedSlider = document.getElementById("seedSlider");
+const seedValue = document.getElementById("seedValue");
+seedValue.innerHTML = seedSlider.value;
+seedSlider.oninput = function() {
+  seedValue.innerHTML = this.value;
 }
 
-const hashySlider = document.getElementById("hashySlider");
-const hashyValue = document.getElementById("hashyValue");
-hashyValue.innerHTML = hashySlider.value;
-hashySlider.oninput = function() {
-  hashyValue.innerHTML = this.value;
-}
 
-const hashzSlider = document.getElementById("hashzSlider");
-const hashzValue = document.getElementById("hashzValue");
-hashzValue.innerHTML = hashzSlider.value;
-hashzSlider.oninput = function() {
-  hashzValue.innerHTML = this.value;
-}
