@@ -8,9 +8,9 @@
 function generateNoise(xCoord, yCoord) {
 
   //slider values
-  let totalNoise = document.getElementById("totalNoiseSlider").value / 100;
-  let persistence = document.getElementById("persistenceSlider").value / 100;
-  let octaveCount = document.getElementById("octaveCountSlider").value;
+  const totalNoise = document.getElementById("totalNoiseSlider").value / 100;
+  const persistence = document.getElementById("persistenceSlider").value / 100;
+  const octaveCount = document.getElementById("octaveCountSlider").value;
 
   for (let currentOctave = 0; currentOctave < octaveCount; currentOctave++) {
     let frequency = 2**currentOctave;
@@ -52,9 +52,10 @@ function fade(interpAmount) {
 function hashCoordinates(xIntCoord, yIntCoord) {
   
   //slider var
-  let seed = document.getElementById("seedSlider").value;
-  
-  let hash = Math.sin(xIntCoord * 12.9898 + yIntCoord * 78.233 + seed) * 43758.5453;
+  let randomizer = document.getElementById("randomizerSlider").value * Math.random();
+  let seed = document.getElementById("seedSlider").value + randomizer;
+
+  let hash = Math.sin(xIntCoord * 12.9898 + yIntCoord * 78.233 + seed + randomizer) * 43758.5453;
   return hash - Math.floor(hash);
 }
 
@@ -85,18 +86,25 @@ function gradient(hash, xFracCoord, yFracCoord) {
 
 // --------------------------------------
 //              DISPLAY
-//              TERRAIN
+//              NOISE
 // --------------------------------------
 
-
-// Set the dimensions of the map
 const mapWidth = 512;
 const mapHeight = 512;
 
+const canvas = document.getElementById("gameCanvas");
+canvas.width = mapWidth;
+canvas.height = mapHeight;
+document.body.appendChild(canvas);
+let ctx = canvas.getContext("2d");
+
+const convertCheckbox = document.getElementById("convertCheckbox");
+
+//STORES CURRENT SESSION NOISEVALUES TO AVOID RELOADING
+let noiseValues = [];
+
 function generateNewMap(){
 
-  // Create a 2D array to store the noise values
-  let noiseValues = [];
   for (let x = 0; x < mapWidth; x++) {
     noiseValues[x] = [];
     for (let y = 0; y < mapHeight; y++) {
@@ -104,20 +112,101 @@ function generateNewMap(){
     }
   }
 
-  // Create a canvas to display the map
-  let canvas = document.getElementById("gameCanvas");
-  canvas.width = mapWidth;
-  canvas.height = mapHeight;
-  document.body.appendChild(canvas);
-  let context = canvas.getContext("2d");
+  convertCheckbox.checked ? colorTheMap() : shadowTheMap();
+}
 
-  // Fill the canvas with the noise values
+function shadowTheMap() {
+  alert("hey2");
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
   for (let x = 0; x < mapWidth; x++) {
     for (let y = 0; y < mapHeight; y++) {
       let noiseValue = noiseValues[x][y];
-      context.fillStyle = `rgb(${noiseValue * 255}, ${noiseValue * 255}, ${noiseValue * 255})`;
-      context.fillRect(x, y, 1, 1);
+
+        ctx.fillStyle = `rgb(${noiseValue * 255}, ${noiseValue * 255}, ${noiseValue * 255})`;
+        ctx.fillRect(x, y, 1, 1);
+
     }
   }
 }
 
+function colorTheMap() {
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for(let x = 0; x < mapWidth; x++){
+
+    for(let y = 0; y < mapHeight; y++){
+
+      let terrain = colorController(noiseValues[x][y]);
+
+      switch (terrain) {
+        
+        case "water":
+          ctx.fillStyle = "blue";
+          break;
+      
+        case "sand":
+          ctx.fillStyle = "yellow";
+          break;
+      
+        case "dark-grass":
+          ctx.fillStyle = "green";
+          break;
+
+        case "light-grass":
+          ctx.fillStyle = "rgb(25,255,25)";
+      
+        case "mountain":
+          ctx.fillStyle = "rgb(25,255,25)";
+          break;
+      
+        case "snow":
+          ctx.fillStyle = "white";
+          break;
+      
+        default:
+          ctx.fillStyle = "gray";
+      }
+
+      ctx.fillRect(x, y, 1, 1);
+
+    }
+  }
+
+}
+
+function colorController(noiseValue) {
+  // Convert noiseValue to terrain type
+  if (noiseValue < 0.2) {
+    return "water";
+  } 
+  
+  else if (noiseValue >= 0.2 && noiseValue < 0.3) {
+    return "sand";
+  } 
+  
+  else if (noiseValue >= 0.3 && noiseValue < 0.5) {
+    return "light-grass";
+  }
+
+  else if (noiseValue >= 0.5 && noiseValue < 0.7) {
+    return "dark-grass";
+  } 
+
+  else if (noiseValue >= 0.7 && noiseValue < 0.9) {
+    return "mountain";
+  }
+  
+  else {
+    return "snow";
+  }
+}
+
+//LISTENERS
+convertCheckbox.oninput = function() {
+
+  convertCheckbox.checked ? colorTheMap() : shadowTheMap();
+
+}

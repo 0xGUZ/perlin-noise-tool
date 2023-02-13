@@ -1,3 +1,5 @@
+import { colorTheMap, shadowTheMap } from "./mapGeneration.js"
+
 const totalNoiseSlider = document.getElementById("totalNoiseSlider");
 const totalNoiseValue = document.getElementById("totalNoiseValue");
 totalNoiseValue.innerHTML = totalNoiseSlider.value;
@@ -26,4 +28,9 @@ seedSlider.oninput = function() {
   seedValue.innerHTML = this.value;
 }
 
-
+const randomizerSlider = document.getElementById("randomizerSlider");
+const randomizerValue = document.getElementById("randomizerValue");
+randomizerValue.innerHTML = randomizerSlider.value;
+randomizerSlider.oninput = function() {
+  randomizerValue.innerHTML = this.value;
+}

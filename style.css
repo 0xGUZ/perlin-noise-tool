@@ -1,5 +1,5 @@
 body {
-    height: 885px;
+    height: 888px;
     margin: auto;
 }
 
@@ -44,4 +44,8 @@ h1 {
 .slider {
     height: 30px;
     width: 100%;
+}
+
+.sliderDivs {
+    margin: 30px;
 }
