@@ -8,9 +8,9 @@
 function generateNoise(xCoord, yCoord) {
 
   //slider values
-  const totalNoise = document.getElementById("totalNoiseSlider").value / 100;
-  const persistence = document.getElementById("persistenceSlider").value / 100;
-  const octaveCount = document.getElementById("octaveCountSlider").value;
+  let totalNoise = document.getElementById("totalNoiseSlider").value / 100;
+  let persistence = document.getElementById("persistenceSlider").value / 100;
+  let octaveCount = document.getElementById("octaveCountSlider").value;
 
   for (let currentOctave = 0; currentOctave < octaveCount; currentOctave++) {
     let frequency = 2**currentOctave;
@@ -53,7 +53,7 @@ function hashCoordinates(xIntCoord, yIntCoord) {
   
   //slider var
   let randomizer = document.getElementById("randomizerSlider").value * Math.random();
-  let seed = document.getElementById("seedSlider").value + randomizer;
+  let seed = document.getElementById("seedSlider").value;
 
   let hash = Math.sin(xIntCoord * 12.9898 + yIntCoord * 78.233 + seed + randomizer) * 43758.5453;
   return hash - Math.floor(hash);
@@ -105,6 +105,7 @@ let noiseValues = [];
 
 function generateNewMap(){
 
+  
   for (let x = 0; x < mapWidth; x++) {
     noiseValues[x] = [];
     for (let y = 0; y < mapHeight; y++) {
@@ -116,7 +117,10 @@ function generateNewMap(){
 }
 
 function shadowTheMap() {
-  alert("hey2");
+
+   let randomizer = document.getElementById("randomizerSlider").value * Math.random();
+
+console.log(randomizer);
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 

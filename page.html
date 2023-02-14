@@ -14,58 +14,67 @@
 
 <body onload="generateNewMap();">
 
-    <div id="header"> 
-        
-        <h1> @gustavo-villar-dev/perlin-noise-tool </h1>
-    </div>
-
-    <canvas id="gameCanvas"></canvas> 
-
-    <div id="right-panel">
-
-        <div class="sliderDivs">
-            <label for="totalNoiseSlider"> Total Noise: <span id="totalNoiseValue"></span></label>
-            <input class="slider" type="range" min="0" max="60" value="30" id="totalNoiseSlider">
-        </div>
-        
-        <div class="sliderDivs">
-            <label for="persistenceSlider"> Persistence: <span id="persistenceValue"></span> </label>
-            <input class="slider" type="range" min="30" max="100" value="65" id="persistenceSlider">
-        </div>
-
-        <div class="sliderDivs">
-            <label for="octaveCountSlider"> Octave Count: <span id="octaveCountValue"></span> </label>
-            <input class="slider" type="range" min="1" max="20" value="11" id="octaveCountSlider">
-        </div>
-
-        <div class="sliderDivs">
-            <label for="seedSlider"> Seed: <span id="seedValue"></span> </label>
-            <input class="slider" type="range" min="0" max="100" value="50" id="seedSlider">
-        </div>
-
-        <div class="sliderDivs">
-            <label for="randomizerSlider"> Randomize by: <span id="randomizerValue"></span> </label>
-            <input class="slider" type="range" min="0" max="100" value="0" id="randomizerSlider">
-        </div>
-
-        <div class="sliderDivs" id="checkboxes">
-
-            <input class="checkbox" type="checkbox" id="convertCheckbox">
-            <label for="convertCheckbox"> Convert to Terrain </label>
-
-        </div>
-
-        <div class="sliderDivs">
-            <button id="button" onclick="generateNewMap()">Generate Map</button>
-        </div>
-
+    <header>
+        <div id="header"> 
             
-    </div>
+            <h1> @gustavo-villar-dev/perlin-noise-tool </h1>
+        </div>
 
+        
+    </header>
+
+    <main>
+        <canvas id="gameCanvas"></canvas> 
+
+        <div id="right-panel">
+
+            <div class="sliderDivs">
+                <label for="totalNoiseSlider"> Total Noise: <span id="totalNoiseValue"></span></label>
+                <input class="slider" type="range" min="0" max="60" value="30" id="totalNoiseSlider">
+            </div>
+            
+            <div class="sliderDivs">
+                <label for="persistenceSlider"> Persistence: <span id="persistenceValue"></span> </label>
+                <input class="slider" type="range" min="30" max="100" value="65" id="persistenceSlider">
+            </div>
+    
+            <div class="sliderDivs">
+                <label for="octaveCountSlider"> Octave Count: <span id="octaveCountValue"></span> </label>
+                <input class="slider" type="range" min="1" max="20" value="11" id="octaveCountSlider">
+            </div>
+    
+            <div class="sliderDivs">
+                <label for="seedSlider"> Seed: <span id="seedValue"></span> </label>
+                <input class="slider" type="range" min="0" max="100" value="50" id="seedSlider">
+            </div>
+    
+            <div class="sliderDivs">
+                <label for="randomizerSlider"> Randomize by: <span id="randomizerValue"></span> </label>
+                <input class="slider" type="range" min="0" max="100" value="0" id="randomizerSlider">
+            </div>
+    
+            <div class="sliderDivs" id="checkboxes">
+    
+                <input class="checkbox" type="checkbox" id="convertCheckbox">
+                <label for="convertCheckbox"> Convert to Terrain </label>
+    
+            </div>
+    
+            <div class="sliderDivs">
+                <button id="button" onclick="generateNewMap()">Generate Map</button>
+            </div>
+      
+        </div>    
+    </main>
+    
+    <footer>
+        <h2><a href="github.com/gustavo-villar-dev">Made by gustavo-villar-dev</a> </h2>
+    </footer>
     
 
     <script src="mapGeneration.js"></script>
     <script src="updateUI.js"></script>
+    <script src="canvasNavigation.js"></script>
 
 </body>
 

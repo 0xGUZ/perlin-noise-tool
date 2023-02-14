@@ -1,4 +1,3 @@
-import { colorTheMap, shadowTheMap } from "./mapGeneration.js"
 
 const totalNoiseSlider = document.getElementById("totalNoiseSlider");
 const totalNoiseValue = document.getElementById("totalNoiseValue");
