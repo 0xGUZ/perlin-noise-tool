@@ -1,5 +1,5 @@
-# perlin-noise-map-generation
-A complete perlin noise tool: generate your map, set your seed, noise value, octave count, persistance and much more.
+# perlin-noise-tool
+A complete perlin noise tool: generate your map, set your seed, noise value, octave count, persistance and much more from your own browser.
 
 ## Features:
 
