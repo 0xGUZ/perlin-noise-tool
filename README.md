@@ -18,3 +18,7 @@ Download your canvas as image or download noise values as a text file.
 ### 4. Learn perlin noise.
 
 Quick tutorial teaches you how perlin noise is generated and applied in different fields.
+
+![image](https://user-images.githubusercontent.com/105249607/219109138-5533fc4a-feea-4239-a625-5da7e359bee5.png)
+![image](https://user-images.githubusercontent.com/105249607/219109287-a5dbcfc3-1ff9-4dc2-a87a-a1dd1f72bcbf.png)
+![image](https://user-images.githubusercontent.com/105249607/219110802-f21cc626-2b5a-4ce6-94bf-82360fbfc2ba.png)
