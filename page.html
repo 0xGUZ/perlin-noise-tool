@@ -4,6 +4,7 @@
 <head>
 
     <!-- Settings -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Infinite Map</title>
 
@@ -15,16 +16,13 @@
 <body onload="generateNewMap();">
 
     <header>
-        <div id="header"> 
-            
             <h1> @gustavo-villar-dev/perlin-noise-tool </h1>
-        </div>
-
-        
     </header>
 
     <main>
-        <canvas id="gameCanvas"></canvas> 
+        <div id="canvas-container">
+            <canvas id="gameCanvas"></canvas> 
+        </div>
 
         <div id="right-panel">
 
@@ -63,15 +61,14 @@
             <div class="sliderDivs">
                 <button id="button" onclick="generateNewMap()">Generate Map</button>
             </div>
-      
         </div>    
+
     </main>
     
     <footer>
-        <h2><a href="github.com/gustavo-villar-dev">Made by gustavo-villar-dev</a> </h2>
+        <h2><a id="footer-text-style" href="www.github.com/gustavo-villar-dev" target="_blank">Made by gustavo-villar-dev</a> </h2>
     </footer>
     
-
     <script src="mapGeneration.js"></script>
     <script src="updateUI.js"></script>
     <script src="canvasNavigation.js"></script>

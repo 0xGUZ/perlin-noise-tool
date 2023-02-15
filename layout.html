@@ -2,8 +2,9 @@
 <html lang="en">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
-    <link rel="stylesheet" type="text/css" href="style2.css">
+    <link rel="stylesheet" type="text/css" href="style-test.css">
 </head>
 
 <body>
@@ -14,14 +15,28 @@
 
     <main>
 
-        <div id="class-container"></div>
-        <div id="right-panel"></div>
+        <div id="class-container">
+            <canvas id="gameCanvas"></canvas>
+        </div>
+
+        <div id="right-panel">
+
+        </div>
 
     </main>
 
     <footer>
 
     </footer>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    </script>
 
 </body>
 

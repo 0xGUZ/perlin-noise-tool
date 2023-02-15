@@ -95,7 +95,6 @@ const mapHeight = 512;
 const canvas = document.getElementById("gameCanvas");
 canvas.width = mapWidth;
 canvas.height = mapHeight;
-document.body.appendChild(canvas);
 let ctx = canvas.getContext("2d");
 
 const convertCheckbox = document.getElementById("convertCheckbox");
@@ -147,6 +146,9 @@ function colorTheMap() {
 
       switch (terrain) {
         
+        case "deep-water":
+          ctx.fillStyle = "rgb(08,20,66)";
+          
         case "water":
           ctx.fillStyle = "blue";
           break;
@@ -182,8 +184,11 @@ function colorTheMap() {
 }
 
 function colorController(noiseValue) {
-  // Convert noiseValue to terrain type
-  if (noiseValue < 0.2) {
+  if (noiseValue < 0.1) {
+    return "deep-water";
+  }
+
+  if (noiseValue >= 0.1 && noiseValue < 0.2) {
     return "water";
   } 
   
