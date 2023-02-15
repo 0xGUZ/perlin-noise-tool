@@ -1,0 +1,33 @@
+body {
+    display: block;
+    margin: 0;
+}
+
+header {
+    background-color: blue;
+    height: 130px;
+    width: 100%;
+}
+
+main {
+    background-color: red;
+    height: auto;
+    display: flex;
+}
+
+#class-container {
+    flex: 8;
+    height: 800px;
+    background-color: red;
+}
+
+#right-panel {
+    flex: 2;
+    height: auto;
+    background-color: yellow;
+}
+
+footer {
+    background-color: green;
+    height: 130px;
+}
