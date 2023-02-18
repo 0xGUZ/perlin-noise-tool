@@ -52,10 +52,10 @@ function fade(interpAmount) {
 function hashCoordinates(xIntCoord, yIntCoord) {
   
   //slider var
-  let randomizer = document.getElementById("randomizerSlider").value * Math.random();
-  let seed = document.getElementById("seedSlider").value;
+  let randomizer = Math.floor(document.getElementById("randomizerSlider").value * Math.random());
+  let seed = document.getElementById("seedSlider").value + randomizer;
 
-  let hash = Math.sin(xIntCoord * 12.9898 + yIntCoord * 78.233 + seed + randomizer) * 43758.5453;
+  let hash = Math.sin(xIntCoord * 12.9898 + yIntCoord * 78.233 + seed) * 43758.5453;
   return hash - Math.floor(hash);
 }
 
@@ -104,7 +104,6 @@ let noiseValues = [];
 
 function generateNewMap(){
 
-  
   for (let x = 0; x < mapWidth; x++) {
     noiseValues[x] = [];
     for (let y = 0; y < mapHeight; y++) {
@@ -116,10 +115,6 @@ function generateNewMap(){
 }
 
 function shadowTheMap() {
-
-   let randomizer = document.getElementById("randomizerSlider").value * Math.random();
-
-console.log(randomizer);
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -191,7 +186,7 @@ function colorTheMap() {
         case "white":
           ctx.fillStyle = "white";
           break;
-          
+
         default:
           ctx.fillStyle = "gray";
           break
@@ -249,17 +244,3 @@ convertCheckbox.oninput = function() {
 
 }
 
-function colorInputHandler() {
-  if(convertCheckbox.checked) {
-    colorTheMap();
-  }
-}
-
-color1.oninput = colorInputHandler();
-color2.oninput = colorInputHandler();
-color3.oninput = colorInputHandler();
-color4.oninput = colorInputHandler();
-color5.oninput = colorInputHandler();
-color6.oninput = colorInputHandler();
-color7.oninput = colorInputHandler();
-color8.oninput = colorInputHandler();
