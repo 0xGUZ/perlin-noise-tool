@@ -26,6 +26,10 @@
 
         <div id="right-panel">
 
+            <h3>Noise Settings</h3>
+
+            <div class="separation-div"></div>
+
             <div class="sliderDivs">
                 <label for="totalNoiseSlider"> Total Noise: <span id="totalNoiseValue"></span></label>
                 <input class="slider" type="range" min="0" max="60" value="30" id="totalNoiseSlider">
@@ -50,6 +54,10 @@
                 <label for="randomizerSlider"> Randomize by: <span id="randomizerValue"></span> </label>
                 <input class="slider" type="range" min="0" max="100" value="0" id="randomizerSlider">
             </div>
+
+            <h3>Color Settings</h3>
+
+            <div class="separation-div"></div>
     
             <div class="sliderDivs" id="checkboxes">
     
@@ -59,8 +67,8 @@
             </div>
 
             <div class="sliderDivs">
-
-
+                <label for="color-1"> Color 1: <span id="color1Value"></span></label>
+                <input class="colors" type="color" id="color-1">
             </div>
     
             <div class="sliderDivs">
@@ -76,7 +84,6 @@
     
     <script src="mapGeneration.js"></script>
     <script src="updateUI.js"></script>
-    <script src="canvasNavigation.js"></script>
 
 </body>
 

@@ -134,6 +134,11 @@ console.log(randomizer);
   }
 }
 
+//colors
+const color1 = document.getElementById("color-1");
+const color2 = document.getElementById("color-2");
+const color3 = document.getElementById("color-3")
+
 function colorTheMap() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -146,29 +151,30 @@ function colorTheMap() {
 
       switch (terrain) {
         
-        case "deep-water":
+        case "color-1":
           ctx.fillStyle = "rgb(08,20,66)";
-          
-        case "water":
+          break;
+
+        case "color-2":
           ctx.fillStyle = "blue";
           break;
       
-        case "sand":
+        case "color-3":
           ctx.fillStyle = "yellow";
           break;
       
-        case "dark-grass":
+        case "color-5":
           ctx.fillStyle = "green";
           break;
 
-        case "light-grass":
+        case "color-4":
           ctx.fillStyle = "rgb(25,255,25)";
       
-        case "mountain":
+        case "color-6":
           ctx.fillStyle = "rgb(25,255,25)";
           break;
       
-        case "snow":
+        case "color-7":
           ctx.fillStyle = "white";
           break;
       
@@ -184,32 +190,32 @@ function colorTheMap() {
 }
 
 function colorController(noiseValue) {
-  if (noiseValue < 0.1) {
-    return "deep-water";
+  if (noiseValue <= 0.000005) {
+    return "color-1";
   }
 
-  if (noiseValue >= 0.1 && noiseValue < 0.2) {
-    return "water";
+  if (noiseValue >= 0.000005 && noiseValue < 0.2) {
+    return "color-2";
   } 
   
   else if (noiseValue >= 0.2 && noiseValue < 0.3) {
-    return "sand";
+    return "color-3";
   } 
   
   else if (noiseValue >= 0.3 && noiseValue < 0.5) {
-    return "light-grass";
+    return "color-4";
   }
 
   else if (noiseValue >= 0.5 && noiseValue < 0.7) {
-    return "dark-grass";
+    return "color-5";
   } 
 
   else if (noiseValue >= 0.7 && noiseValue < 0.9) {
-    return "mountain";
+    return "color-6";
   }
   
   else {
-    return "snow";
+    return "color-7";
   }
 }
 
@@ -219,3 +225,4 @@ convertCheckbox.oninput = function() {
   convertCheckbox.checked ? colorTheMap() : shadowTheMap();
 
 }
+
