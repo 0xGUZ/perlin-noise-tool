@@ -26,54 +26,106 @@
 
         <div id="right-panel">
 
-            <h3>Noise Settings</h3>
+            <div id="noiseSettings">
+                
+                <h3>Noise Settings</h3>
 
-            <div class="separation-div"></div>
+                <div class="separation-div"></div>
 
-            <div class="sliderDivs">
-                <label for="totalNoiseSlider"> Total Noise: <span id="totalNoiseValue"></span></label>
-                <input class="slider" type="range" min="0" max="60" value="30" id="totalNoiseSlider">
+                <div class="rightpanel-subdiv">
+                    <label for="totalNoiseSlider"> Total Noise: <span id="totalNoiseValue"></span></label>
+                    <input class="slider" type="range" min="0" max="60" value="30" id="totalNoiseSlider">
+                </div>
+                
+                <div class="rightpanel-subdiv">
+                    <label for="persistenceSlider"> Persistence: <span id="persistenceValue"></span> </label>
+                    <input class="slider" type="range" min="30" max="100" value="65" id="persistenceSlider">
+                </div>
+        
+                <div class="rightpanel-subdiv">
+                    <label for="octaveCountSlider"> Octave Count: <span id="octaveCountValue"></span> </label>
+                    <input class="slider" type="range" min="1" max="20" value="11" id="octaveCountSlider">
+                </div>
+        
+                <div class="rightpanel-subdiv">
+                    <label for="seedSlider"> Seed: <span id="seedValue"></span> </label>
+                    <input class="slider" type="range" min="0" max="100" value="50" id="seedSlider">
+                </div>
+        
+                <div class="rightpanel-subdiv">
+                    <label for="randomizerSlider"> Randomize by: <span id="randomizerValue"></span> </label>
+                    <input class="slider" type="range" min="0" max="100" value="0" id="randomizerSlider">
+                </div>
+
             </div>
             
-            <div class="sliderDivs">
-                <label for="persistenceSlider"> Persistence: <span id="persistenceValue"></span> </label>
-                <input class="slider" type="range" min="30" max="100" value="65" id="persistenceSlider">
-            </div>
-    
-            <div class="sliderDivs">
-                <label for="octaveCountSlider"> Octave Count: <span id="octaveCountValue"></span> </label>
-                <input class="slider" type="range" min="1" max="20" value="11" id="octaveCountSlider">
-            </div>
-    
-            <div class="sliderDivs">
-                <label for="seedSlider"> Seed: <span id="seedValue"></span> </label>
-                <input class="slider" type="range" min="0" max="100" value="50" id="seedSlider">
-            </div>
-    
-            <div class="sliderDivs">
-                <label for="randomizerSlider"> Randomize by: <span id="randomizerValue"></span> </label>
-                <input class="slider" type="range" min="0" max="100" value="0" id="randomizerSlider">
-            </div>
+            <div id="colorSettings">
 
-            <h3>Color Settings</h3>
+                <h3>Color Settings</h3>
 
-            <div class="separation-div"></div>
-    
-            <div class="sliderDivs" id="checkboxes">
-    
-                <input class="checkbox" type="checkbox" id="convertCheckbox">
-                <label for="convertCheckbox"> Colorize the map</label>
-    
-            </div>
+                <div class="separation-div"></div>
+        
+                <div class="rightpanel-subdiv" id="checkboxes">
+        
+                    <input class="checkbox" type="checkbox" id="convertCheckbox" checked>
+                    <label for="convertCheckbox"> Colorize the Map</label>
+        
+                </div>
 
-            <div class="sliderDivs">
-                <label for="color-1"> Color 1: <span id="color1Value"></span></label>
-                <input class="colors" type="color" id="color-1">
-            </div>
-    
-            <div class="sliderDivs">
-                <button id="button" onclick="generateNewMap()">Generate Map</button>
-            </div>
+                <div id="colorsContainer">
+
+                    <div class="grid-element">
+                        <label for="color-1"> Color 1</label>
+                        <br>
+                        <input class="colors" type="color" id="color-1" value="#0011FF">
+                    </div>
+
+                    <div class="grid-element">
+                        <label for="color-2"> Color 2</label>
+                        <br>
+                        <input class="colors" type="color" id="color-2" value="#00BFFF">
+                    </div>
+
+                    <div class="grid-element">
+                        <label for="color-3"> Color 3</label>
+                        <br>
+                        <input class="colors" type="color" id="color-3" value="#FBFF00">
+                    </div>
+
+                    <div class="grid-element">
+                        <label for="color-4"> Color 4</label>
+                        <br>
+                        <input class="colors" type="color" id="color-4" value="#02D92D">
+                    </div>
+
+                    <div class="grid-element">
+                        <label for="color-5"> Color 5</label>
+                        <br>
+                        <input class="colors" type="color" id="color-5" value="#007013">
+                    </div>
+
+                    <div class="grid-element">
+                        <label for="color-6"> Color 6</label>
+                        <br>
+                        <input class="colors" type="color" id="color-6" value="#004D01">
+                    </div>
+
+                    <div class="grid-element">
+                        <label for="color-7"> Color 7</label>
+                        <br>
+                        <input class="colors" type="color" id="color-7" value="#662D00">
+                    </div>
+
+                    <div class="grid-element">
+                        <label for="color-8"> Color 8</label>
+                        <br>
+                        <input class="colors" type="color" id="color-8" value="#B3B3B3">
+                    </div>
+                </div>
+
+                <div class="rightpanel-subdiv">
+                    <button id="button" onclick="generateNewMap()">Generate Map</button>
+                </div>
         </div>    
 
     </main>

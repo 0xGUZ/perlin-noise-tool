@@ -135,9 +135,14 @@ console.log(randomizer);
 }
 
 //colors
-const color1 = document.getElementById("color-1");
-const color2 = document.getElementById("color-2");
-const color3 = document.getElementById("color-3")
+let color1 = document.getElementById("color-1");
+let color2 = document.getElementById("color-2");
+let color3 = document.getElementById("color-3");
+let color4 = document.getElementById("color-4");
+let color5 = document.getElementById("color-5");
+let color6 = document.getElementById("color-6");
+let color7 = document.getElementById("color-7");
+let color8 = document.getElementById("color-8");
 
 function colorTheMap() {
 
@@ -152,34 +157,44 @@ function colorTheMap() {
       switch (terrain) {
         
         case "color-1":
-          ctx.fillStyle = "rgb(08,20,66)";
+          ctx.fillStyle = color1.value;
           break;
 
         case "color-2":
-          ctx.fillStyle = "blue";
+          ctx.fillStyle = color2.value;
           break;
       
         case "color-3":
-          ctx.fillStyle = "yellow";
+          ctx.fillStyle = color3.value;
           break;
       
-        case "color-5":
-          ctx.fillStyle = "green";
+        case "color-4":
+          ctx.fillStyle = color4.value;
           break;
 
-        case "color-4":
-          ctx.fillStyle = "rgb(25,255,25)";
+        case "color-5":
+          ctx.fillStyle = color5.value;
+          break;
       
         case "color-6":
-          ctx.fillStyle = "rgb(25,255,25)";
+          ctx.fillStyle = color6.value;
           break;
       
         case "color-7":
-          ctx.fillStyle = "white";
+          ctx.fillStyle = color7.value;
+          break;
+
+        case "color-8":
+          ctx.fillStyle = color8.value;
           break;
       
+        case "white":
+          ctx.fillStyle = "white";
+          break;
+          
         default:
           ctx.fillStyle = "gray";
+          break
       }
 
       ctx.fillRect(x, y, 1, 1);
@@ -194,28 +209,36 @@ function colorController(noiseValue) {
     return "color-1";
   }
 
-  if (noiseValue >= 0.000005 && noiseValue < 0.2) {
+  if (noiseValue >= 0.000005 && noiseValue < 0.15) {
     return "color-2";
   } 
   
-  else if (noiseValue >= 0.2 && noiseValue < 0.3) {
+  else if (noiseValue >= 0.15 && noiseValue < 0.3) {
     return "color-3";
   } 
   
-  else if (noiseValue >= 0.3 && noiseValue < 0.5) {
+  else if (noiseValue >= 0.3 && noiseValue < 0.4) {
     return "color-4";
   }
 
-  else if (noiseValue >= 0.5 && noiseValue < 0.7) {
+  else if (noiseValue >= 0.4 && noiseValue < 0.5) {
     return "color-5";
+  }
+
+  else if (noiseValue >= 0.5 && noiseValue < 0.65) {
+    return "color-6";
   } 
 
-  else if (noiseValue >= 0.7 && noiseValue < 0.9) {
-    return "color-6";
+  else if (noiseValue >= 0.65 && noiseValue < 0.80) {
+    return "color-7";
   }
   
+  else if (noiseValue >= 0.80 && noiseValue < 0.9) {
+    return "color-8";
+  }
+
   else {
-    return "color-7";
+    return "white";
   }
 }
 
@@ -226,3 +249,17 @@ convertCheckbox.oninput = function() {
 
 }
 
+function colorInputHandler() {
+  if(convertCheckbox.checked) {
+    colorTheMap();
+  }
+}
+
+color1.oninput = colorInputHandler();
+color2.oninput = colorInputHandler();
+color3.oninput = colorInputHandler();
+color4.oninput = colorInputHandler();
+color5.oninput = colorInputHandler();
+color6.oninput = colorInputHandler();
+color7.oninput = colorInputHandler();
+color8.oninput = colorInputHandler();

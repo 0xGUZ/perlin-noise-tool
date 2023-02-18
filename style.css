@@ -27,6 +27,7 @@ h3 {
 #button {
     width: 100%;
     height: 80px;
+    font-size: 20px;
 }
 
 header {
@@ -78,6 +79,27 @@ footer {
     align-items: center;
 }
 
+.colors {
+    height: 30px;
+    width: 30px;
+}
+
+#colorsContainer{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0px;
+    background-color: #303030;
+    height: 230px;
+}
+
+.grid-element{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
 label {
     color: #eeeeee;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -89,6 +111,6 @@ label {
     width: 100%;
 }
 
-.sliderDivs {
+.rightpanel-subdiv {
     margin: 30px;
 }
